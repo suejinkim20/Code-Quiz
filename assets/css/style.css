@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: sans-serif;
+  /*background-color: rgb(236, 227, 227);*/
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.header-wrapper {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+header{
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.code-page {
+  text-align: center;
+  width: 75%;
+  margin: 20px;
+  padding: 20px;
+}
+
+button {
+  /*background-color: #2e2e2e;
+  color: white; */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+
+/* Styles for High Scores Page */
+.display-scores {
+  margin: auto;
+  padding: 20px;
+  display: block;
+  ;
+}
+
+.high-scores-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.scores-buttons-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Code Quiz</title>
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+
+
+    <body>
+        <header>
+            <div class="header-wrapper">
+                <button onclick="document.location='highscores.html'">View High Scores</button>
+                <h3 class="time">Timer: 100 seconds left</h3>
+            </div>
+            <h1>Code Quiz</h1>
+        </header>
+
+        <main>
+            <!-- Display of page on load-->
+
+            <div class="code-page" id="landing-page">
+                <h2>Click the button to start quiz</h2>
+                <button id="startBtn"> Start Quiz</button>
+            </div>
+
+            <!-- Page w/ questions -->
+            <div class="code-page" id="question-page">
+                <div class= "question-box" id= "question-box">
+                    <h3 id="question"></h3>
+                    <div class= "button-div">
+                        <button id="choice-a"></button>
+                        <button id="choice-b"></button>
+                        <button id="choice-c"></button>
+                        <button id="choice-d"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page displays final score, enter initials-->
+            <div class="code-page" id="final-score-page">
+                <h2>Final score page</h2>
+                <h4>Your score</h4>
+                <h4>Type initals here</h4>
+            </div>
+
+        </main>
+        <script src="./assets/js/script.js"></script>
+    </body>
+
+
+</html>
