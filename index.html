@@ -13,41 +13,31 @@
         <header>
             <div class="header-wrapper">
                 <button onclick="document.location='highscores.html'">View High Scores</button>
-                <h3 class="time">Timer: 100 seconds left</h3>
+                <h3 id="time">Timer: 100 seconds left</h3>
             </div>
             <h1>Code Quiz</h1>
         </header>
 
         <main>
-            <!-- Display of page on load-->
-
-            <div class="code-page" id="landing-page">
-                <h2>Click the button to start quiz</h2>
-                <button id="startBtn"> Start Quiz</button>
-            </div>
 
             <!-- Page w/ questions -->
             <div class="code-page" id="question-page">
                 <div class= "question-box" id= "question-box">
-                    <h3 id="question"></h3>
-                    <div class= "button-div">
-                        <button id="choice-a"></button>
-                        <button id="choice-b"></button>
-                        <button id="choice-c"></button>
-                        <button id="choice-d"></button>
+                    <h3 id="prompt"></h3>
+                    <div class= "button-div" id="button-div">
                     </div>
+                    <div id="feedback"></div>
                 </div>
             </div>
 
             <!-- Page displays final score, enter initials-->
-            <div class="code-page" id="final-score-page">
-                <h2>Final score page</h2>
-                <h4>Your score</h4>
-                <h4>Type initals here</h4>
+            <form class="code-page" id="results-page">
             </div>
 
         </main>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="./assets/js/script.js"></script>
+
     </body>
 
 
