@@ -41,7 +41,6 @@ var questionDiv = document.getElementById("question-page");
 var promptDiv = document.getElementById("prompt");
 var resultsDiv = document.getElementById("results-page");
 var buttonDiv = $('#button-div');
-var feedbackDiv = document.getElementById("feedback");
 var startBtnEl = "";
 var scoresDiv = document.getElementById("high-scores-div");
 
@@ -49,12 +48,15 @@ var scoresDiv = document.getElementById("high-scores-div");
 var secondsLeft = 100; // start timer at 100 seconds
 var timeEl = document.getElementById("time"); 
 
-var scoresDiv = document.getElementById("scores-div"); //div for high scores
+
 var viewScoresBtn = document.getElementById("view-scores");  //button for high scores
-//var startBtnEl = document.getElementById("startBtn");  //start button div
 
 var emptyArray = [];  // an array to store high scores
+
 var storedArray = JSON.parse(window.localStorage.getItem("highScores"));  // the array of high scores from local storage
+if (JSON.parse(localStorage.getItem("highScores")) !== null) {
+  highScores = JSON.parse(localStorage.getItem("highScores")); }
+
 
 function init() {
   startBtnEl = document.createElement("button");
@@ -161,8 +163,10 @@ function displayQuestions() {
 function checkAnswer() {
     if (this.innerHTML == correctChoice) {
        score += 10;
+      console.log("Correct")
       } else {
         secondsLeft -= 10;
+        console.log("Incorrect")
     };
     questionsIndex ++;
     displayQuestions();
@@ -174,21 +178,23 @@ if (questionsIndex == questions.length) {
 
 function displayScore() {
     timeEl.remove();
-    //choices.textContent = "";
-  buttonDiv.empty();
+    buttonDiv.empty();
 
     var userInitials = document.createElement('input');
+    userInitials.setAttribute("type", "text");
+
     var submitBtn = document.createElement('button');
+    submitBtn.innerText = "Submit";
 
     resultsDiv.innerHTML = "Your score = " + score + ".    Initials: "
-    userInitials.setAttribute("type", "text");
-    submitBtn.innerText = "Submit";
   
     submitBtn.addEventListener('click', function(event) {
       event.preventDefault();
-      var scoresArray = defineScoresArray(storedArray, emptyArray);
+      console.log("Submit button clicked.")
+      var scoresArray = [];
 
       var initials = userInitials.value;
+
       var userAndScore = {
         initials: initials,
         score: score,
@@ -198,59 +204,29 @@ function displayScore() {
 
       window.localStorage.setItem("highScores", JSON.stringify(scoresArray));
 
-      displayAllScores();
-
       submitBtn.remove();
   
     }
     );
-
+    
     resultsDiv.append(userInitials);
     resultsDiv.append(submitBtn);
+    displayAllScores();
 
-};
-function defineScoresArray(arr1, arr2) {
-  if(arr1 !== null) {
-    return arr1
-  } else {
-    return arr2
-  }
 };
 
 function displayAllScores() {
   timeEl.remove();
-  //startBtnEl.remove();
   resultsDiv.remove();
-let scoresArray = defineScoresArray(storedArray, emptyArray);
-
-scoresArray.forEach(obj => {
-  let initials = obj.initials;
-  let storedScore = obj.score;
-  let resultsP = document.createElement("p");
-  resultsP.innerText = `${initials}: ${storedScore}`;
-  scoresDiv.append(resultsP);
-});
+  JSON.parse(localStorage.getItem("highScores"))
 }
 
 
 init();
 startBtnEl.addEventListener("click", setTime);
-//displayScore();
 
-//Function to display the questions
-  // with a parameter of the question to be asked.
-  // loop through the answers and apend buttons for each on the page
-  //dynamically updated/overwrite the div with questions and answers
-
-//on click function that checks if the answer is correct
-  // conditional statement.  
-  // If the answer is incorrect decrement 15 seconds from the countdown then move to the next question
 
 // If the answer is correct just move to the next question
-
-//A set interval function
-  // decrements time at a set interval
-  // udates the display
 
 //HTML docment that includes a div or secion where the questions will be displayed
 
