@@ -28,12 +28,13 @@ var questions = [
 ];
 var score = 0;  // a variable to accumulate correct answers 
 var questionsIndex = 0;  // keeping track of which question we're on
-//var correctChoice = "";
+
+var correctChoice = "";
 var choiceAEl = "";
 var choiceBEl = "";
 var choiceCEl = "";
 var choiceDEl = "";
-
+var storedScores = [];
 
 //Display Pages
 var landingDiv = document.getElementById("landing-page");
@@ -42,20 +43,15 @@ var promptDiv = document.getElementById("prompt");
 var resultsDiv = document.getElementById("results-page");
 var buttonDiv = $('#button-div');
 var startBtnEl = "";
-var scoresDiv = document.getElementById("high-scores-div");
+// var scoresDiv = document.getElementById("high-scores-div");
+
 
 //Timer Variables
 var secondsLeft = 100; // start timer at 100 seconds
 var timeEl = document.getElementById("time"); 
 
 
-var viewScoresBtn = document.getElementById("view-scores");  //button for high scores
-
-var emptyArray = [];  // an array to store high scores
-
-var storedArray = JSON.parse(window.localStorage.getItem("highScores"));  // the array of high scores from local storage
-if (JSON.parse(localStorage.getItem("highScores")) !== null) {
-  highScores = JSON.parse(localStorage.getItem("highScores")); }
+//var viewScoresBtn = document.getElementById("view-scores");  //button for high scores
 
 
 function init() {
@@ -163,17 +159,13 @@ function displayQuestions() {
 function checkAnswer() {
     if (this.innerHTML == correctChoice) {
        score += 10;
-      console.log("Correct")
+      console.log("Correct");
       } else {
         secondsLeft -= 10;
-        console.log("Incorrect")
+        console.log("Incorrect");
     };
     questionsIndex ++;
     displayQuestions();
-}
-
-if (questionsIndex == questions.length) {
-  displayScore();
 }
 
 function displayScore() {
@@ -189,46 +181,35 @@ function displayScore() {
     resultsDiv.innerHTML = "Your score = " + score + ".    Initials: "
   
     submitBtn.addEventListener('click', function(event) {
-      event.preventDefault();
-      console.log("Submit button clicked.")
-      var scoresArray = [];
-
+      event.preventDefault();      
       var initials = userInitials.value;
-
       var userAndScore = {
         initials: initials,
         score: score,
+        };
+
+
+      if (localStorage.getItem("highScores") === null) {
+        storedScores = [];
+      } else {
+        storedScores.push(userAndScore);
+        console.log(storedScores)
       };
-  
-      scoresArray.push(userAndScore);
 
-      window.localStorage.setItem("highScores", JSON.stringify(scoresArray));
-
-      submitBtn.remove();
+      
+      var newScore = JSON.stringify(storedScores);
+      localStorage.setItem("highScores", newScore);
   
-    }
-    );
-    
+      window.location.replace("highscores.html");
+
+    });
+
     resultsDiv.append(userInitials);
     resultsDiv.append(submitBtn);
-    displayAllScores();
 
+    
 };
-
-function displayAllScores() {
-  timeEl.remove();
-  resultsDiv.remove();
-  JSON.parse(localStorage.getItem("highScores"))
-}
 
 
 init();
 startBtnEl.addEventListener("click", setTime);
-
-
-// If the answer is correct just move to the next question
-
-//HTML docment that includes a div or secion where the questions will be displayed
-
-//capture the users initials at the end with their score for display at the end of the quiz and store in localStorage.
-  //use a global variable to accumulate correct answers then save then use on click to save to localStorage
