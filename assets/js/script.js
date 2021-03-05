@@ -188,16 +188,14 @@ function displayScore() {
         score: score,
         };
 
+      const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+      console.log(highScores);
 
-      if (localStorage.getItem("highScores") === null) {
-        storedScores = [];
-      } else {
-        storedScores.push(userAndScore);
-        console.log(storedScores)
-      };
+      highScores.push(userAndScore);
 
-      
-      var newScore = JSON.stringify(storedScores);
+      console.log("after being pushed: ", highScores)
+
+      var newScore = JSON.stringify(highScores);
       localStorage.setItem("highScores", newScore);
   
       window.location.replace("highscores.html");
