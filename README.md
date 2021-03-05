@@ -12,7 +12,6 @@ This application is a timed coding quiz which stores the player's score.
 
 The following issues still need to be resolved:
 * When the game is played multiple times, the high scores need to be sorted by score from highest to lowest and display the highest three.
-* Formatting of high scores page needs to be adjusted for better user experience to be able to read the scores more clearly.
 
 
 ## Usage

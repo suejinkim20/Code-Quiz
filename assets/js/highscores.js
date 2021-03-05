@@ -17,14 +17,13 @@ function init() {
 
     if (highScores !== null) {
         for (var i=0; i < highScores.length; i++) {
-            var userDisplay = document.createElement("p");
+            var userDisplay = document.createElement("li");
 
-            userDisplay.textContent = "Player: " + highScores[i].initials + "Score: " + highScores[i].score;
+            userDisplay.textContent = "Player: " + highScores[i].initials + "   Score: " + highScores[i].score;
 
             scoresDiv.append(userDisplay);
         }
     }
-
 }
 
 init();
