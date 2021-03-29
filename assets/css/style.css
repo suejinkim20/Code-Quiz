@@ -10,9 +10,11 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   /*background-color: rgb(236, 227, 227);*/
   margin: auto;
+  background: url("../images/nguyen-dang-hoang-nhu-qDgTQOYk6B8-unsplash.jpg");
+  background-size: 100%;
 }
 
 .header-wrapper {
@@ -25,6 +27,7 @@ header{
   margin: 10px;
   padding: 10px;
   text-align: center;
+  color: white;
 }
 
 /*main {
@@ -39,6 +42,12 @@ header{
   padding: 20px;
 }
 
+#prompt {
+  background-color: rgba(0, 0, 0, 0.495);
+  color: white;
+  padding: 20px;
+}
+
 button {
   /*background-color: #2e2e2e;
   color: white; */
@@ -47,6 +56,7 @@ button {
   font-size: 16px;
   border-radius: 5px;
   display: flex;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -55,7 +65,10 @@ button {
   margin: auto;
   padding: 20px;
   display: block;
-  ;
+  color: white;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.399);
+  list-style: none;
 }
 
 .high-scores-div {
